@@ -21,6 +21,7 @@ CURRENT_WALLPAPER_INDEX = 0
 DEBUG = False
 WALLPAPER_PATH = ""
 ALL_IMAGES = False
+PREFERED_FETCH_TOOL = ""
 # </config.json>
 
 def get_files():
@@ -318,6 +319,34 @@ def load_config():
     width = round(lines * UI_SCALE_COEFFICIENT)
     height = round(width / 16 * 9)
 
+def start_fetch():
+    if PREFERED_FETCH_TOOL != "":
+        fetch_tools = [
+            "fastfetch",
+            "neofetch",
+            "screenFetch",
+            "archey",
+            "archey3",
+            "archey4",
+            "pfetch",
+            "ufetch",
+            "hardfetch",
+            "winfetch",
+            "swmfetch",
+            "cpufetch",
+            "ferris-fetch",
+            "fet.sh",
+            "afetch",
+            "rsfetch",
+        ]
+
+        for fetch in fetch_tools:
+            if shutil.which(fetch) != None:
+                os.system(fetch)
+                break
+    else:
+        os.system(PREFERED_FETCH_TOOL)
+
 def main():
     os.system("clear")
     load_config()
@@ -328,7 +357,7 @@ def main():
         info_render()
         user_input()
 
-    os.system("fastfetch")
+    start_fetch()
 
 if __name__ == "__main__":
     main()

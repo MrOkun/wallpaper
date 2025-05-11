@@ -1,5 +1,5 @@
 {
-	"wallpaper_path": "/home/alex/Pictures/wallpapers",
+	"wallpaper_path": "/path/to/wallpapers",
 	"ui_scale_coefficient": 2.4,
 	"debug": false,
 	"current_wallpaper_index": 1,

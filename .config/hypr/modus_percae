@@ -1,0 +1,2 @@
+exec-once = wal -R
+exec-once = mpvpaper "*" -o "vf-add=fps=12:round=near no-audio loop fullscreen no-border video-unscaled=no vf=lavfi=[scale=w=1920:h=1080:force_original_aspect_ratio=increase,crop=1920:1080]" /home/alex/Pictures/wallpapers/vibe.png

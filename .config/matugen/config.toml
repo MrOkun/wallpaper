@@ -1,0 +1,12 @@
+[config]
+# ...
+
+[templates.hyprland]
+input_path = '~/.config/hypr/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
+
+[templates.waybar]
+input_path = '~/.config/waybar/colors1.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
