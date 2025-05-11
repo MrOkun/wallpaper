@@ -22,6 +22,7 @@ DEBUG = False
 WALLPAPER_PATH = ""
 ALL_IMAGES = False
 PREFERED_FETCH_TOOL = ""
+OPACITER_PATH = ""
 # </config.json>
 
 def get_files():
@@ -96,7 +97,7 @@ def image_render():
     
 
 def info_render():
-    global WALLPAPER_PATH, CURRENT_WALLPAPER_INDEX
+    global WALLPAPER_PATH, CURRENT_WALLPAPER_INDEX, OPACITER_PATH
 
     files = get_files()
 
@@ -195,8 +196,8 @@ def set_wallpaper():
     print(f"matugen image {files[CURRENT_WALLPAPER_INDEX]}")
     os.system(f"matugen image {files[CURRENT_WALLPAPER_INDEX]}")
     
-    print(f"python3 /home/alex/.config/waybar/opaciter.py /home/alex/.config/waybar/colors.css")
-    os.system(f"python3 /home/alex/.config/waybar/opaciter.py /home/alex/.config/waybar/colors.css")
+    print(f"python3 {OPACITER_PATH} /home/alex/.config/waybar/colors.css")
+    os.system(f"python3 {OPACITER_PATH} /home/alex/.config/waybar/colors.css")
         
     print("wal-telegram", "--wal", "-g", "-r")
     subprocess.Popen(["wal-telegram", "--wal", "-g", "-r"], shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -253,7 +254,7 @@ def user_input():
         exit()
 
 def load_config():
-    global WALLPAPER_PATH, UI_SCALE_COEFFICIENT, CURRENT_WALLPAPER_INDEX, ALL_IMAGES, DEBUG
+    global WALLPAPER_PATH, UI_SCALE_COEFFICIENT, CURRENT_WALLPAPER_INDEX, ALL_IMAGES, DEBUG, OPACITER_PATH
     #string - yellow
     #number - blue
     #boolean - cyan
@@ -291,6 +292,13 @@ def load_config():
 
     print("DEBUG = ", colorama.Fore.CYAN, f"{debug}", colorama.Fore.WHITE)
     DEBUG = debug
+
+    #opaciter path
+
+    opaciter_path = config_json["opaciter_path"]
+
+    print("OPACITER_PATH = ", colorama.Fore.YELLOW, f"{opaciter_path}", colorama.Fore.WHITE)
+    OPACITER_PATH = opaciter_path
 
     #debug
     if DEBUG:

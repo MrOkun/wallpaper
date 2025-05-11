@@ -1,5 +1,6 @@
 {
-	"wallpaper_path": "/path/to/wallpapers",
+	"wallpaper_path": "/home/alex/Pictures/wallpapers",
+	"opaciter_path": "/home/alex/.config/waybar/opaciter.py",
 	"ui_scale_coefficient": 2.4,
 	"debug": false,
 	"current_wallpaper_index": 1,
