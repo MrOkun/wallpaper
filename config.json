@@ -4,5 +4,6 @@
 	"ui_scale_coefficient": 2.4,
 	"debug": false,
 	"current_wallpaper_index": 1,
-	"all_images": true
+	"all_images": true,
+	"prefered_fetch_tool": "fastfetch"
 }

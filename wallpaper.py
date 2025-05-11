@@ -160,6 +160,8 @@ def info_render():
     print("\n" * (G))
 
 def set_wallpaper():
+    global OPACITER_PATH
+
     os.system("killall waybar")
     os.system("killall mpvpaper")
     os.system("killall fmmpeg")
@@ -254,7 +256,7 @@ def user_input():
         exit()
 
 def load_config():
-    global WALLPAPER_PATH, UI_SCALE_COEFFICIENT, CURRENT_WALLPAPER_INDEX, ALL_IMAGES, DEBUG, OPACITER_PATH
+    global WALLPAPER_PATH, UI_SCALE_COEFFICIENT, CURRENT_WALLPAPER_INDEX, ALL_IMAGES, DEBUG, OPACITER_PATH, PREFERED_FETCH_TOOL
     #string - yellow
     #number - blue
     #boolean - cyan
@@ -293,12 +295,11 @@ def load_config():
     print("DEBUG = ", colorama.Fore.CYAN, f"{debug}", colorama.Fore.WHITE)
     DEBUG = debug
 
-    #opaciter path
+    #prefered fetch tool
+    prefered_fetch_tool = config_json["prefered_fetch_tool"]
 
-    opaciter_path = config_json["opaciter_path"]
-
-    print("OPACITER_PATH = ", colorama.Fore.YELLOW, f"{opaciter_path}", colorama.Fore.WHITE)
-    OPACITER_PATH = opaciter_path
+    print("PREFERED_FETCH_TOOL = ", colorama.Fore.YELLOW, f"{prefered_fetch_tool}", colorama.Fore.WHITE)
+    PREFERED_FETCH_TOOL = prefered_fetch_tool
 
     #debug
     if DEBUG:
@@ -358,7 +359,6 @@ def start_fetch():
 def main():
     os.system("clear")
     load_config()
-    os.system("clear")
 
     while WORKING:
         image_render()
